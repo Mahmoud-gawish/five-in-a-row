@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- <suite name="TestSuite01" parallel="methods" thread-count="2"> -->
+<suite name="FullApiSuite" >
+    <listeners>
+        <listener class-name="listeners.RetryListener" />
+    </listeners>
+
+    <test name="FullSuite">
+        <classes>
+
+            <class name="TestCases.CreateGameTests">
+                <methods>
+                    <include name="test_Create_validGame" />
+                    <include name="test_createGameWithInvalid_userToken" />
+                </methods>
+            </class>
+
+            <class name="TestCases.CreateUserTests">
+                <methods>
+                    <include name="test_CreateValidUser" />
+                    <include name="test_User_alreadyRegistered" />
+                </methods>
+            </class>
+
+            <class name="TestCases.LastStatusCheck">
+                <methods>
+                    <include name="test_checkGameStatus" />
+                    <include name="test_checkGameStatusWithInvalidUserToken" />
+                    <include name="test_checkGameStatusWithInvalidGameToken" />
+                </methods>
+            </class>
+
+            <class name="TestCases.SendingHitsTest">
+                <methods>
+                    <include name="test_createValidHits" />
+                    <include name="test_invalidGAmeToken" />
+                    <include name="test_invalidUserToken" />
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+</suite>
